@@ -9,7 +9,20 @@
 - /Users/stepo/anaconda3/envs/ffrc/bin/python pip install pytz
 - /Users/stepo/anaconda3/envs/ffrc/bin/python pip install requests
 
-## ChatGPT response
+## Alg. idea - mock calc. w/ Futures-funding-rate-calculations
+1a) **Short highest funded futures coin**  
+
+|ASSET NA|f_t0|f_t1|f_t2|f_t3|f_t4|    
+|BTCUSDT|<ins>0.48</ins>|0.17|0.20|0.34|0.08|  
+|ETHUSDT|0.22|<ins>0.68</ins>|0.44|0.18|0.14|  
+|VETUSDT|0.18|0.44|<ins>0.82</ins>|0.22|<ins>0.38</ins>|  
+|ADAUSDT|0.11|0.08|0.20|<ins>0.52</ins>|0.12|  
+
+1b) **Long on spot the asset with same amount of cash**  
+2) Rebalance & repeat.
+
+___
+## Misc. - ChatGPT response
 Q: Get all history of Bitcoin BTCUSDT funding rates here https://fapi.binance.com/fapi/v1/fundingRate
 
 To obtain the complete history of Bitcoin (BTC) funding rates for the BTCUSDT perpetual futures on Binance, you can use the following endpoint:
