@@ -11,9 +11,8 @@ def format_unix_timestamp(timestamp):
     return formatted_date
 
 
-def fetch_data():
-    #url = 'https://api.example.com/data/{}'.format(range_value)
-    url = 'https://fapi.binance.com/fapi/v1/fundingRate?symbol=BTCUSDT&limit=1000'
+def fetch_data(pair):
+    url = 'https://fapi.binance.com/fapi/v1/fundingRate?symbol={}&limit=1000'.format(pair)
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -28,8 +27,8 @@ def fetch_data():
 timestamp = 1687968000000  # Assuming the timestamp is in seconds
 human_readable_date = format_unix_timestamp(timestamp)
 
-#print(fetch_data())
-data1 = fetch_data()
+print(fetch_data('BTCUSDT'))
+#data1 = fetch_data('BTCUSDT')
 print("ahoj")
 print(human_readable_date)
 
