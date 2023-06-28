@@ -1,6 +1,6 @@
 import datetime
 import pytz
-#import requests
+import requests
 
 
 def format_unix_timestamp(timestamp):
@@ -11,8 +11,9 @@ def format_unix_timestamp(timestamp):
     return formatted_date
 
 
-# def fetch_data(range_value):
-    url = 'https://api.example.com/data/{}'.format(range_value)
+def fetch_data():
+    #url = 'https://api.example.com/data/{}'.format(range_value)
+    url = 'https://fapi.binance.com/fapi/v1/fundingRate?symbol=BTCUSDT&limit=1000'
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -24,9 +25,12 @@ def format_unix_timestamp(timestamp):
         return None
 
 
-timestamp = 1658851200000  # Assuming the timestamp is in seconds
+timestamp = 1687968000000  # Assuming the timestamp is in seconds
 human_readable_date = format_unix_timestamp(timestamp)
 
+#print(fetch_data())
+data1 = fetch_data()
+print("ahoj")
 print(human_readable_date)
 
 #url = 'https://api.example.com/data'

@@ -4,6 +4,10 @@
 - `f`api - `futures` api - https://fapi.binance.com/fapi/v1/fundingRate?symbol=BTCUSDT&limit=1000
 - batching by 1000, can query multiple times w/ `startTime` -  https://fapi.binance.com/fapi/v1/fundingRate?symbol=BTCUSDT&limit=1000&startTime=1624564800000
 
+## Internal notes
+- Conda python 3.7
+- /Users/stepo/anaconda3/envs/ffrc/bin/python pip install pytz
+- /Users/stepo/anaconda3/envs/ffrc/bin/python pip install requests
 
 ## ChatGPT response
 Q: Get all history of Bitcoin BTCUSDT funding rates here https://fapi.binance.com/fapi/v1/fundingRate
