@@ -21,6 +21,11 @@
 1b) **Long on spot the asset with same amount of cash**  
 2) Rebalance & repeat.
 
+## Implementation
+- rec. list retrieval and chronological list
+- then fill into pandas dataframe pd.DataFrame
+- generate HTML table output for test 
+- maximalize shit + constrains
 ___
 ## Misc. - ChatGPT response
 Q: Get all history of Bitcoin BTCUSDT funding rates here https://fapi.binance.com/fapi/v1/fundingRate

@@ -27,8 +27,10 @@ def fetch_data(pair):
 timestamp = 1687968000000  # Assuming the timestamp is in seconds
 human_readable_date = format_unix_timestamp(timestamp)
 
-print(fetch_data('BTCUSDT'))
-#data1 = fetch_data('BTCUSDT')
+#print(fetch_data('BTCUSDT'))
+data1 = fetch_data('BTCUSDT')
+print(data1)
+print(len(data1))
 print("ahoj")
 print(human_readable_date)
 
