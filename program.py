@@ -11,18 +11,18 @@ def format_unix_timestamp(timestamp):
     return formatted_date
 
 
-def fetch_data(pair):
-    url = 'https://fapi.binance.com/fapi/v1/fundingRate?symbol={}&limit=1000'.format(pair)
+def fetch_data(symbol):
+    hist_data = []
+    url = 'https://fapi.binance.com/fapi/v1/fundingRate?symbol={}&limit=1000'.format(symbol)
     response = requests.get(url)
-
     if response.status_code == 200:
         data = response.json()
-        # Process the retrieved data
         return data
     else:
         print('Request failed with status code:', response.status_code)
         return None
-
+def fetch_data_rec(symbol, limit, startTime):
+    url = f"https://fapi.binance.com/fapi/v1/fundingRate?symbol={symbol}&limit={limit}&startTime={startTime}"
 
 timestamp = 1687968000000  # Assuming the timestamp is in seconds
 human_readable_date = format_unix_timestamp(timestamp)
