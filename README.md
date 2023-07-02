@@ -12,11 +12,15 @@
 ## Alg. idea - mock calc. w/ Futures-funding-rate-calculations
 1a) **Short highest funded futures coin**  
 
-|ASSET NA|f_t0|f_t1|f_t2|f_t3|f_t4|    
-|BTCUSDT|<ins>0.48</ins>|0.17|0.20|0.34|0.08|  
-|ETHUSDT|0.22|<ins>0.68</ins>|0.44|0.18|0.14|  
-|VETUSDT|0.18|0.44|<ins>0.82</ins>|0.22|<ins>0.38</ins>|  
-|ADAUSDT|0.11|0.08|0.20|<ins>0.52</ins>|0.12|  
+
+|DATE|BTCUSDT|ETHUSDT|VETUSDT|ADAUSDT|  
+|f_t0|<ins>0.48</ins>|0.22|0.18|0.11|  
+|f_t1|0.17|<ins>0.68</ins>|0.44|0.08|  
+|f_t2|0.20|0.44|<ins>0.82</ins>|0.20|  
+|f_t3|0.34|0.18|0.22|<ins>0.52</ins>|  
+|f_t3|0.08|0.14|<ins>0.38</ins>|0.12|  
+
+Horizontally Stacked By Stock https://towardsdatascience.com/pandas-multiindexing-and-working-with-time-series-data-8e6229f11998
 
 1b) **Long on spot the asset with same amount of cash**  
 2) Rebalance & repeat.
