@@ -7,7 +7,12 @@
 ## Internal notes
 - Conda python 3.7
 - /Users/stepo/anaconda3/envs/ffrc/bin/python pip install pytz
-- /Users/stepo/anaconda3/envs/ffrc/bin/python pip install requests
+- /Users/stepo/anaconda3/envs/ffrc/bin/python pip install requests  
+
+Run along with libraries like `pythonRT program.py`.
+```zsh
+/Users/stepo/anaconda3/envs/ffrc/bin/python program.py  
+```
 
 ## Alg. idea - mock calc. w/ Futures-funding-rate-calculations
 1a) **Short highest funded futures coin**  
