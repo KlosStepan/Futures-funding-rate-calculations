@@ -12,15 +12,22 @@ def format_unix_timestamp(timestamp):
 
 
 def fetch_data(symbol):
-    hist_data = []
+    data = []
     url = 'https://fapi.binance.com/fapi/v1/fundingRate?symbol={}&limit=1000'.format(symbol)
     response = requests.get(url)
     if response.status_code == 200:
-        data = response.json()
-        return data
+        data = data + response.json()
+        print(len(response.json()))
+        print(format_unix_timestamp(response.json()[0]['fundingTime']))
+        print((response.json()[0]['fundingTime']))
+        print(format_unix_timestamp(response.json()[999]['fundingTime']))
+        print((response.json()[999]['fundingTime']))
+        #return data
     else:
         print('Request failed with status code:', response.status_code)
-        return None
+        #return None
+    return []    
+    
 def fetch_data_rec(symbol, limit, startTime):
     url = f"https://fapi.binance.com/fapi/v1/fundingRate?symbol={symbol}&limit={limit}&startTime={startTime}"
 
@@ -29,10 +36,10 @@ human_readable_date = format_unix_timestamp(timestamp)
 
 #print(fetch_data('BTCUSDT'))
 data1 = fetch_data('BTCUSDT')
-print(data1)
-print(len(data1))
-print("ahoj")
-print(human_readable_date)
+#print(data1)
+#print(len(data1))
+#print("ahoj")
+#print(human_readable_date)
 
 #url = 'https://api.example.com/data'
 #response = requests.get(url)
