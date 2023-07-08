@@ -4,6 +4,11 @@
 - `f`api - `futures` api - https://fapi.binance.com/fapi/v1/fundingRate?symbol=BTCUSDT&limit=1000
 - batching by 1000, can query multiple times w/ `startTime` -  https://fapi.binance.com/fapi/v1/fundingRate?symbol=BTCUSDT&limit=1000&startTime=1624564800000
 
+Possible `funding rates` / timezone stuff explained https://www.binance.com/en/support/faq/introduction-to-binance-futures-funding-rates-360033525031 , `UTC` is `GMT`.
+```
+Funding payments generally occur every 8 hours at 00:00 UTC, 08:00 UTC, and 16:00 UTC for all Binance Futures perpetual contracts.
+```
+
 ## Internal notes
 - Conda python 3.7
 - /Users/stepo/anaconda3/envs/ffrc/bin/python pip install pytz
