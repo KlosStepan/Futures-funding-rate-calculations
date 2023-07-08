@@ -2,7 +2,7 @@ import datetime
 import pytz
 import requests
 #DEFAULT TIMEZEONE IS GMT
-#BINANCE FUTURES SHOW +2
+#BINANCE FUTURES SHOW +2 TO US ON WEBSITE (idk why, mby geoloc., mby Europe/CZ)
 #https://www.binance.com/en/futures/funding-history/perpetual/funding-fee-history
 
 def format_unix_timestamp(timestamp):
@@ -16,17 +16,38 @@ def format_unix_timestamp(timestamp):
 
 def fetch_data(symbol):
     data = []
-    url = 'https://fapi.binance.com/fapi/v1/fundingRate?symbol={}&limit=1000&startTime=1568102400000'.format(symbol)
+    #symbol = "BTCUSDT"
+    limit = 1000
+    startTime = 1568102400000
+    #url = 'https://fapi.binance.com/fapi/v1/fundingRate?symbol={}&limit=1000&startTime=1568102400000'.format(symbol)
+    url = f"https://fapi.binance.com/fapi/v1/fundingRate?symbol={symbol}&limit={limit}&startTime={startTime}"
     response = requests.get(url)
     if response.status_code == 200:
-        data = data + response.json()
-        print(len(response.json()))
+        #data = data + response.json()
+        print("batch "+str(len(response.json())))
         print(format_unix_timestamp(response.json()[0]['fundingTime']))
+        print((response.json()[0]['fundingTime']))
         print(response.json()[0])
         print(format_unix_timestamp(response.json()[999]['fundingTime']))
-        #print((response.json()[999]['fundingTime']))
+        print((response.json()[999]['fundingTime']))
         print(response.json()[999])
-        #return data
+        #continue loop here
+        if len(response.json()) == 1000:
+            startTime2 = format_unix_timestamp(response.json()[999]['fundingTime'])
+            print("The length of the response JSON is 1000.")
+            keepFetching = True
+            while keepFetching:
+                url2 = f"https://fapi.binance.com/fapi/v1/fundingRate?symbol={symbol}&limit={limit}&startTime={startTime2}"
+                response2 = requests.get(url2)
+                if response2.status_code == 200:
+                    print("OK, print, set startTime2")
+                    print("len, len-1 is last= break")
+                else:
+                    print('Request failed with status code:', response.status_code)
+                #if False:
+                    #keepFetching=False
+        else:
+            print("The length of the response JSON is not 1000.")
     else:
         print('Request failed with status code:', response.status_code)
         #return None
